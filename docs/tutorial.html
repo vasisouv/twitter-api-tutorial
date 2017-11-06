@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Twitter API Tutorial</title>
+
+    <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="res/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="display-4">Twitter API Tutorial</h1>
+        <div class="bd-lead"><p>The Twitter API is an interface to get, alter and insert content on Twitter. This tutorial
+            includes the basic steps one could follow to interact with the API. Contact me for any questions at
+            <a href="mailto:vasisouv@csd.auth.gr" target="_top">vasisouv@csd.auth.gr</a> or
+            <a href="mailto:souvatzisbill@gmail.com" target="_top">souvatzisbill@gmail.com</a>
+        </div>
+        <!-- Section 1 -->
+        <div class="heading bg-primary text-white">
+            <h2>1. Preperation</h2>
+        </div>
+        <!-- Create a Twitter account -->
+        <h4>a. Create a Twitter account</h4>
+        <p>Having a Twitter account is a must for communicating with its API. Skip this step if you already have an account.
+            <a href="https://twitter.com/signup?" target="_blank">(Signup link)</a>
+        </p>
+        <!-- Create a Twitter Application -->
+        <h4>b. Create a Twitter Application</h4>
+        <p>Go to <a href="https://apps.twitter.com/" target="_blank">apps.twitter.com</a> and create a Twitter Application. An application's URL is required but any
+            valid URL can be placed on the field as a placeholer for later. Also, please provide your mobile phone number if/when asked to do so. An account's application can only communicate with the API when a
+            mobile phone is associated with the account.
+        </p>
+        <!-- Generate API keys -->
+        <h4>c. Generate all the API keys</h4>
+        <p>After creating your application you will need to generate the API keys that will be used for the communication with
+            the API itself. When inside your application's dashboard, click on the <b>Keys and Access tokens</b> tab, as seen on the
+            image below.
+        </p>
+        <div class="img-tutorial-container">
+            <img class="img-tutorial" src="res/img/img1.jpg">
+            <span class=""> Image 1. Locating the Keys and Access tokens </span>
+        </div>
+        <p>Scroll to the bottom (Your Access Token section) and click <b>Create my access token</b>.</p>
+        <div class="img-tutorial-container">
+            <img class="img-tutorial" src="res/img/img2.jpg">
+            <span class=""> Image 2. Generating the API keys </span>
+        </div>
+        <p class="text-danger"><b>IMPORTANT: </b>You should never reveal your Consumer Secret and Access Token Secret to the public.
+            These keys can be used to make malicious calls to the API on your behalf and result on bans or other prohibitions to your account.
+            Also be cautious when uploading your project on github or any other online repository. Preferably avoid hardcoding the keys and
+            save them externally on a text file that stays local-only or is encrypted (for git see:  <a href="https://git-scm.com/docs/gitignore">gitignore</a>).
+        </p>
+        <!-- Section 2 -->
+        <div class="heading bg-primary text-white">
+            <h2>2. Communicating with the Twitter API</h2>
+        </div>
+        <div class="bd-lead"><p>This tutorial makes use of <b>python</b> and <b>Java</b> to communicate with the Twitter API. The libraries that are used are:
+            <ul>
+                <li><a href="http://www.tweepy.org/" target="_blank">tweepy</a> for python
+                    (<a href="http://tweepy.readthedocs.io/" target="_blank" class="subtitle">docs</a>,
+                    <a href="http://tweepy.readthedocs.io/en/v3.5.0/code_snippet.html" target="_blank" class="subtitle">snippets</a>)
+
+                </li>
+                <li>
+                    <a href="http://twitter4j.org/en/" target="_blank">Twitter4j</a> for Java
+                    (<a href="http://twitter4j.org/en/javadoc.html" target="_blank" class="subtitle">docs</a>,
+                    <a href="http://twitter4j.org/en/code-examples.html" target="_blank" class="subtitle">examples</a>,
+                    <a href="https://github.com/yusuke/twitter4j/tree/master/twitter4j-examples/src/main/java/twitter4j/examples"
+                       target="_blank" class="subtitle">more examples</a>)
+                </li>
+            </ul>
+            <p>These libraries are well-known, tested and you can find plenty of material on the web about them.</p>
+        </div>
+        <h4>a. Setup the authentication configuration using the API keys</h4>
+        <p>It is time to utilize the API keys we just generated. The following code initializes an api object that we will use
+            to communicate with the API. The keys used on the examples below are simple placeholders and should be replaced with your own.
+        </p>
+        <!-- Code block for python and Java -->
+        <div class="card">
+            <div class="card-header">
+                <img class="p-language" src="res/img/icons/python.jpg"> <b>Python</b>
+            </div>
+            <div class="card-body">
+            <pre class="card-text">
+<code>
+<span class="comment"># Initialize the API consumer keys and access tokens</span>
+consumer_key = <span class="value">"SORXfCgvpS3wdbMRRNtc2qzfB" </span>
+consumer_secret = <span class="value">"GBJkn5LCRuqvHqnogOdJJYKS4lNqVKiTWtOL0xlBKzD3p6uYFY" </span>
+
+access_token = <span class="value">"599269165-blChAStgzrWo9TIPcoUHiqhJTf7RqLxz090HnWjF" </span>
+access_token_secret = <span class="value">"RjdUeLOkemTPLObB6dLDsdfwSQk3joyqDKer94g27Qi9J" </span>
+
+<span class="comment"># Authenticate tweepy using the keys </span>
+auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+auth.set_access_token(access_token, access_token_secret)
+
+api = tweepy.API(auth, <span class="parameter">wait_on_rate_limit</span>=True, <span class="parameter">wait_on_rate_limit_notify</span>=True, <span class="parameter">compression</span>=True)
+</code></pre>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <img class="p-language" src="res/img/icons/java.jpg"> <b>Java</b>
+            </div>
+            <div class="card-body">
+            <pre class="card-text">
+<code>
+<span class="comment">// Creating a ConfigurationBuilder object to authenticate our application</span>
+ConfigurationBuilder cb = <span class="keyword">new</span> ConfigurationBuilder();
+cb.setDebugEnabled(<span class="keyword">true</span>)
+    .setOAuthConsumerKey(<span class="value">"SORXfCgvpS3wdbMRRNtc2qzfB"</span>)
+    .setOAuthConsumerSecret(<span class="value">"GBJkn5LCRuqvHqnogOdJJYKS4lNqVKiTWtOL0xlBKzD3p6uYFY"</span>)
+    .setOAuthAccessToken(<span class="value">"599269165-blChAStgzrWo9TIPcoUHiqhJTf7RqLxz090HnWjF"</span>)
+    .setOAuthAccessTokenSecret(<span class="value">"RjdUeLOkemTPLObB6dLDsdfwSQk3joyqDKer94g27Qi9J"</span>);
+
+Twitter api = <span class="keyword">new</span> TwitterFactory(cb.build()).getInstance();
+</code></pre>
+            </div>
+        </div>
+        <!-- -->
+        <h4>b. Listen and fetch tweets from the Streaming API</h4>
+        <p>The Streaming API is the best way to get massive amounts of tweets based on specific <b>keywords</b> or
+            <b>location</b>. While not all tweets that get posted on Twitter are caught by the streaming API, it is still the
+            optimal way to gather tweets due to the fact that it is not <a href="https://developer.twitter.com/en/docs/basics/rate-limiting" target="_blank"> rate limited </a>
+        </p>
+        <div class="card">
+            <div class="card-header">
+                <img class="p-language" src="res/img/icons/python.jpg"> <b>Python</b>
+            </div>
+            <div class="card-body">
+            <pre class="card-text">
+<code>
+<span class="keyword">if</span> __name__ == <span class="value">'__main__'</span>:
+
+    <span class="comment"># Initialize the listener</span>
+    listener = TwitterListener()
+    stream = tweepy.Stream(auth, listener)
+
+    <span class="comment"># Set the parameters for the stream listener</span>
+    topics = [<span class="value">"music,guitar,concerts"</span>]
+    langs = [<span class="value">"en", "el"</span>]
+    async = <span class="keyword">True</span>
+    encoding = <span class="value">"utf-8"</span>
+    <span class="comment"># Create bounding boxes using http://boundingbox.klokantech.com/</span>
+    <span class="comment"># Copy and paste CSV Raw inside an array as below</span>
+    geo_greece = [<span class="keyword">19.4897460938,34.7596661247,28.5205078125,41.7385284694</span>]
+    locations = geo_greece
+
+    <span class="comment"># Start Streaming</span>
+    <span class="comment"># <span class="text-danger">ATTENTION</span>: using both location and topics is not possible</span>
+
+    <span class="comment"># by topic</span>
+    stream.filter(<span class="parameter">languages</span>=langs, <span class="parameter">track</span>=topics, <span class="parameter">async</span>=async, <span class="parameter">encoding</span>=encoding)
+    <span class="comment"># OR by location</span>
+    stream.filter(<span class="parameter">languages=langs</span>, <span class="parameter">locations</span>=locations, <span class="parameter">async</span>=async, <span class="parameter">encoding</span>=encoding)
+
+<span class="keyword">class</span> TwitterListener(tweepy.StreamListener):
+
+    <span class="keyword">print</span>(<span class="value">"Starting tweet collection..."</span>)
+    <span class="comment"># The stream listener found a tweet that matches our parameters</span>
+    <span class="keyword">def</span> on_data(self, data):
+        tweet_json = json.loads(data)
+
+            <span class="comment"># get any value using tweet_json[*name_of_field*]</span>
+            <span class="comment"># see: https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/tweet-object for field names</span>
+            tweet_text = tweet_json["text"]
+
+    <span class="comment"># An error occured</span>
+    <span class="keyword">def</span> on_error(self, status):
+        <span class="keyword">print</span>(status)
+</code></pre>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <img class="p-language" src="res/img/icons/java.jpg"> <b>Java</b>
+            </div>
+            <div class="card-body">
+            <pre class="card-text">
+<code>
+<span class="keyword">public static void</span> main(String[] args) <span class="keyword">throws</span> TwitterException, JSONException {
+    String[] keywords = {<span class="value">"music,guitar,concert"</span>};
+    getTweetsFromStream(keywords,cb);
+}
+<span class="keyword">private static void</span> getTweetsFromStream(String[] keywords,ConfigurationBuilder cb){
+
+    TwitterStream twitterStream = <span class="keyword">new</span> TwitterStreamFactory(cb.build()).getInstance();
+    StatusListener listener = <span class="keyword">new</span> StatusListener() {
+        <span class="override">@Override</span>
+        <span class="keyword">public void</span> onStatus(Status status)
+        {
+            String tweetText = status.getText();
+            System.out.println(tweetText);
+        }
+        <span class="override">@Override</span>
+        public void onDeletionNotice(StatusDeletionNotice statusDeletionNotice) {
+            System.out.println("Got a status deletion notice id:" + statusDeletionNotice.getStatusId());
+        }
+        <span class="override">@Override</span>
+        public void onTrackLimitationNotice(int numberOfLimitedStatuses) {
+            System.out.println("Got track limitation notice:" + numberOfLimitedStatuses);
+        }
+        <span class="override">@Override</span>
+        public void onScrubGeo(long userId, long upToStatusId) {
+            System.out.println("Got scrub_geo event userId:" + userId + " upToStatusId:" + upToStatusId);
+        }
+        <span class="override">@Override</span>
+        public void onStallWarning(StallWarning warning) {
+            System.out.println("Got stall warning:" + warning);
+        }
+        <span class="override">@Override</span>
+        public void onException(Exception ex) {
+            ex.printStackTrace();
+        }
+    };
+
+    FilterQuery fq = <span class="keyword">new</span> FilterQuery();
+    fq.language(<span class="value">"en"</span>);
+
+    <span class="comment">// keywords</span>
+    fq.track(keywords);
+
+    <span class="comment">// location</span>
+    <span class="keyword">double</span>[] geoGreeceW = {<span class="keyword">20.26,34.87</span>};
+    <span class="keyword">double</span>[] geoGreeceE = {<span class="keyword">27.16,41.29</span>};
+
+    <span class="keyword">double</span>[][] location = {geoGreeceW,geoGreeceE};
+    fq.locations(location);
+
+    <span class="comment">// <span class="text-danger">ATTENTION</span>: using both location and keywords filtering does not work.</span>
+
+    twitterStream.addListener(listener);
+    twitterStream.filter(fq);
+}
+</code></pre>
+            </div>
+        </div>
+        <h4>c. Get tweets of specific users</h4>
+        <p>Getting the entire timeline of a specific user can be achieved by calling the api using a user's id or screen name property.
+        </p>
+        <div class="card">
+            <div class="card-header">
+                <img class="p-language" src="res/img/icons/python.jpg"> <b>Python</b>
+            </div>
+            <div class="card-body">
+            <pre class="card-text">
+<code>
+<span class="keyword">if</span> __name__ == <span class="value">'__main__'</span>:
+
+    <span class="comment"># Aristotle University's Twitter user ID</span>
+    user_id = <span class="value">"234343780"</span>
+    statuses = get_user_tweets(user_id)
+    <span class="keyword">for</span> status in statuses:
+        <span class="keyword">print</span> (status._json["text"])
+
+<span class="keyword">def</span> get_user_tweets(user_id):
+
+    timeline = []
+    progress = <span class="keyword">0</span>
+
+    <span class="keyword"> for</span> status <span class="keyword">in</span> tweepy.Cursor(api.user_timeline, id=user_id).items():
+        timeline.append(status)
+        progress+=1
+        <span class="keyword">print</span>(<span class="value">"Fetched "</span>+<span class="keyword">str</span>(progress)+<span class="value">" out of all timeline items"</span>)
+
+    <span class="keyword">return</span> statuses
+</code></pre>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <img class="p-language" src="res/img/icons/java.jpg"> <b>Java</b>
+            </div>
+            <div class="card-body">
+            <pre class="card-text">
+<code>
+<span class="keyword">public static void</span> main(String[] args) <span class="keyword">throws</span> TwitterException, JSONException {
+
+    String username = <span class="value">"Aristoteleio"</span>;
+
+    List&lt;String&gt; userTweets = getTweetsOfUser(username,cb);
+    <span class="keyword">for</span> (String tweet : userTweets){
+        System.out.println(tweet);
+    }
+}
+<span class="keyword">private static </span>List&lt;String&gt; getTweetsOfUser(String username, ConfigurationBuilder cb){
+    // gets Twitter instance with default credentials
+    Twitter api = <span class="keyword">new</span> TwitterFactory(cb.build()).getInstance();
+    List&lt;String&gt; tweets = <span class="keyword">new</span> ArrayList&lt;String&gt;();
+
+    <span class="keyword">try</span> {
+        List&lt;Status&gt; statuses;
+
+        <span class="keyword">int</span> pageNum = <span class="keyword">1</span>;
+        Paging paging = new Paging(pageNum,<span class="keyword">1000</span>);
+        <span class="keyword">do</span>{
+            statuses = api.getUserTimeline(username,paging);
+            <span class="keyword">for </span> (Status status : statuses) {
+                String tweetText = status.getText();
+                tweets.add(tweetText);
+            }
+            pageNum+=1;
+            paging.setPage(pageNum);
+
+            System.out.println(<span class="value">"Fetched "</span>+String.valueOf(tweets.size())+<span class="value">"tweets so far"</span>);
+        }<span class="keyword">while</span> (statuses.size() != 0);
+
+    } <span class="keyword">catch</span> (TwitterException te) {
+        te.printStackTrace();
+        System.out.println(<span class="value">"Failed to get timeline: "</span> + te.getMessage());
+    }
+    <span class="keyword">return</span> tweets;
+}
+</code></pre>
+            </div>
+        </div>
+        <h4>d. Get an entire user</h4>
+        <p>Getting the entire user can be achieved by calling the api using a user's id or screen name property.</p>
+        <div class="card">
+            <div class="card-header">
+                <img class="p-language" src="res/img/icons/python.jpg"> <b>Python</b>
+            </div>
+            <div class="card-body">
+            <pre class="card-text">
+<code>
+<span class="keyword">if</span> __name__ == <span class="value">'__main__'</span>:
+
+    user_json = get_user(user_id)
+
+    <span class="comment"># Access all the information using .*field*</span>
+    <span class="comment"># https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/user-object</span>
+
+    screen_name = <span class="keyword">str</span>(user_json.screen_name)
+    followers_count = <span class="keyword">str</span>(user_json.followers_count)
+    friends_count = <span class="keyword">str</span>(user_json.friends_count)
+
+    <span class="keyword">print</span> (<span class="value">"This user has the screen name: "</span>+screen_name)
+    <span class="keyword">print</span> (<span class="value">"This user has "</span>+followers_count+" followers")
+    <span class="keyword">print</span> (<span class="value">"This user has "</span>+friends_count+" friends")
+
+<span class="keyword">def</span> get_user(user_id):
+
+    <span class="keyword">print</span>(<span class="value">"Searching full information for user with id "</span> + <span class="keyword">str</span>(user_id))
+    <span class="keyword">try</span>:
+        user_json = api.get_user(user_id)
+    <span class="keyword">except</span> tweepy.TweepError as tweep_error:
+        <span class="keyword">print</span>(<span class="value">"Error with code : "</span> + str(tweep_error.response.text))
+        <span class="keyword">return 0</span>
+    <span class="keyword">return</span> user_json
+</code></pre>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <img class="p-language" src="res/img/icons/java.jpg"> <b>Java</b>
+            </div>
+            <div class="card-body">
+            <pre class="card-text">
+<code>
+<span class="keyword">public static void</span> main(String[] args) <span class="keyword">throws</span> TwitterException, JSONException {
+
+    String username = <span class="value">"Aristoteleio"</span>;
+
+    User user = getUserByScreenName(username,cb);
+    <span class="keyword">if</span> (user != null){
+        System.out.println(<span class="value">"This user's id is "</span>+String.valueOf(user.getId()));
+    }
+}
+
+<span class="keyword">private static</span> User getUserByScreenName(String username,ConfigurationBuilder cb){
+
+    Twitter api = <span class="keyword">new</span> TwitterFactory(cb.build()).getInstance();
+    <span class="keyword">try</span> {
+
+        User user = api.showUser(username);
+        <span class="keyword">if</span> (user.getStatus() == null) {
+            // the user is protected or non-existent
+            <span class="keyword">return null</span>;
+        }
+        <span class="keyword">return</span> user;
+    } <span class="keyword">catch</span> (TwitterException te) {
+        te.printStackTrace();
+        System.out.println(<span class="value">"Failed to get user: "</span> + te.getMessage());
+        <span class="keyword">return null</span>;
+    }
+}
+</code></pre>
+            </div>
+        </div>
+        <h4>e. Get the network of a user (friends + followers ids)</h4>
+        <p>When referring to friends in the API, friends are all the users this user follows. This part can be tricky since
+        it is rate limited and many users have a huge number of followers or friends. Preferably limit them for lower fetching times.</p>
+        <div class="card">
+            <div class="card-header">
+                <img class="p-language" src="res/img/icons/python.jpg"> <b>Python</b>
+            </div>
+            <div class="card-body">
+            <pre class="card-text">
+<code>
+<span class="keyword">if</span> __name__ == <span class="value">'__main__'</span>:
+
+    <span class="comment"># Aristotle University's Twitter user ID</span>
+
+    user_id = <span class="value">"234343780"</span>
+    network = get_user_network(user_id)
+
+    <span class="keyword">print</span>(network[<span class="value">"friends"</span>])
+    <span class="keyword">print</span>(network[<span class="value">"followers"]</span>)
+
+<span class="keyword">def</span> get_user_network(user_id):
+
+    <span class="keyword">print</span>(<span class="value">"Searching network for user with id "</span> + str(user_id))
+
+    followers = []
+    friends = []
+    max_followers = <span class="keyword">100000</span>
+    max_friends = <span class="keyword">100000</span>
+    <span class="keyword">try</span>:
+        <span class="keyword">for</span> page <span class="keyword">in</span> tweepy.Cursor(api.followers_ids, id=user_id).pages():
+            followers.extend(page)
+            <span class="keyword">if</span> len(followers) >= max_followers:
+                <span class="keyword">break</span>
+            <span class="keyword">print</span>(<span class="value">"Followers so far : "</span> + str(len(followers)))
+        <span class="keyword">print</span>(<span class="value">"finished followers"</span>)
+        <span class="keyword">for</span> page <span class="keyword">in</span> tweepy.Cursor(api.friends_ids, id=user_id).pages():
+            friends.extend(page)
+            <span class="keyword">if</span> len(friends) >= max_friends:
+                <span class="keyword">break</span>
+            <span class="keyword">print</span>(<span class="value">"Friends so far : "</span> + str(len(friends)))
+        <span class="keyword">print</span>(<span class="value">"finished friends"</span>)
+    <span class="keyword">except</span> tweepy.TweepError as tweep_error:
+        <span class="keyword">print</span>(<span class="value">"Error with code : "</span> + str(tweep_error.response.text))
+        <span class="keyword">return 0</span>
+    <span class="keyword">print</span>(<span class="value">"User with ID: "</span> + user_id + <span class="value">" has "</span> + str(len(followers)) + <span class="value">" followers and "</span> + str(len(friends)) + <span class="value">" friends"</span>)
+    custom_object = {
+        <span class="value">"id"</span>: user_id,
+        <span class="value">"followers"</span>: followers,
+        <span class="value">"friends"</span>: friends
+    }
+    <span class="keyword">return</span> custom_object
+</code></pre>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <img class="p-language" src="res/img/icons/java.jpg"> <b>Java</b>
+            </div>
+            <div class="card-body">
+            <pre class="card-text">
+<code>
+<span class="keyword">public static void</span> main(String[] args) <span class="keyword">throws</span> TwitterException, JSONException {
+
+    String username = <span class="value">"Aristoteleio"</span>;
+
+    JSONObject userNetwork = getUserNetwork(username,cb);
+
+    JSONArray friends = userNetwork.getJSONArray(<span class="value">"friendsIDs"</span>);
+    JSONArray followers = userNetwork.getJSONArray(<span class="value">"followersIDs"</span>);
+
+    System.out.println("Showing this person's friends");
+    <span class="keyword">for</span> (int i=0 ; i< friends.length() ; i++){
+        System.out.println(friends.get(i).toString());
+    }
+    System.out.println("Showing this person's followers");
+    <span class="keyword">for</span> (int i=0 ; i< followers.length() ; i++){
+        System.out.println(followers.get(i).toString());
+    }
+    System.out.println(<span class="value">"This user has a total of "</span>+String.valueOf(friends.length())+<span class="value">" friends"</span> +
+        <span class="value">" and "</span>+String.valueOf(followers.length())+<span class="value">" followers on Twitter"</span>);
+}
+
+<span class="keyword">private static</span> JSONObject getUserNetwork(String username,ConfigurationBuilder cb) <span class="keyword">throws</span> JSONException {
+
+    JSONObject obj = new JSONObject();
+
+    obj.put(<span class="value">"username"</span>, username);
+
+    Twitter api = new TwitterFactory(cb.build()).getInstance();
+
+    List&lt;String&gt; friendsIDs = new ArrayList&lt;String&gt;();
+    List&lt;String&gt; followersIDs = new ArrayList&lt;String&gt;();
+
+    // Getting the friends IDs
+    <span class="keyword">try</span> {
+        long cursor = -1;
+        IDs ids;
+        <span class="keyword">do</span> {
+            RateLimitStatus status = api.getRateLimitStatus().get(<span class="value">"/friends/ids"</span>);
+            checkLimit(status);
+
+            ids = api.getFriendsIDs(username,cursor);
+            <span class="keyword">for</span> (long id : ids.getIDs()) {
+                <span class="comment">//System.out.println(id);</span>
+                friendsIDs.add(String.valueOf(id));
+            }
+            System.out.println(<span class="value">"Friends so far : "</span>+String.valueOf(friendsIDs.size()));
+        } <span class="keyword">while</span> ((cursor = ids.getNextCursor()) != 0);
+    } <span class="keyword">catch</span> (TwitterException te) {
+        te.printStackTrace();
+        System.out.println(<span class="value">"Failed to get friends' ids: "</span> + te.getMessage());
+    } catch (InterruptedException e) {
+        e.printStackTrace();
+    }
+    // Getting the followers IDs
+    <span class="keyword">try</span> {
+        long cursor = -1;
+        IDs ids;
+        <span class="keyword">do</span> {
+        RateLimitStatus status = api.getRateLimitStatus().get(<span class="value">"/followers/ids"</span>);
+            checkLimit(status);
+
+            ids = api.getFollowersIDs(username,cursor);
+            for (long id : ids.getIDs()) {
+                followersIDs.add(String.valueOf(id));
+            }
+        System.out.println(<span class="value">"Followers so far : "</span>+String.valueOf(followersIDs.size()));
+        } <span class="keyword">while</span> ((cursor = ids.getNextCursor()) != 0);
+    } <span class="keyword">catch</span> (TwitterException te) {
+        te.printStackTrace();
+        System.out.println(<span class="value">"Failed to get followers' ids: "</span> + te.getMessage());
+    } catch (InterruptedException e) {
+        e.printStackTrace();
+    }
+    obj.put("friendsIDs", friendsIDs);
+    obj.put("followersIDs",followersIDs);
+    <span class="keyword">return</span> obj;
+}
+<span class="keyword">private static void</span> checkLimit(RateLimitStatus status) <span class="keyword">throws</span> InterruptedException {
+    <span class="keyword">if</span> (status.getRemaining() == 0){
+        // the api is rate limiting the application
+        int timeRemaining = status.getSecondsUntilReset();
+        System.out.println(<span class="value">"Rate limit reached! Should wake up in "</span>+String.valueOf(timeRemaining/60)+<span class="value">" minutes!"</span>);
+
+        Thread.sleep(<span class="keyword">1000</span> * timeRemaining);
+        System.out.println(<span class="value">"Waking up and resuming!"</span>);
+    }
+}
+</code></pre>
+            </div>
+        </div>
+        <div class="heading bg-primary text-white">
+            <h2>3. Storing data </h2>
+        </div>
+        <p> All the methods have a <em><b>custom_object parameter</b> which is basically a json object like the following:</em></span></p>
+        <pre>
+            <code>custom_object = {
+                    <span class="value">"id"</span>: tweet_json["id_str"],
+                    <span class="value">"created_at"</span>: tweet_json["created_at"],
+                    <span class="value">"text"</span>: tweet_json["text"],
+                    <span class="value">"by_user"</span>: tweet_json["user"]["id_str"]
+                }</code></pre>
+        <h4>a. Simple text file</h4>
+
+        <div class="card">
+            <div class="card-header">
+                <img class="p-language" src="res/img/icons/python.jpg"> <b>Python</b>
+            </div>
+            <div class="card-body">
+            <pre class="card-text">
+<code>
+<span class="keyword">def</span> save_to_txt(custom_object):
+    file = "../../output/output.txt"
+    <span class="keyword">with</span> open(file, "a") as f:
+        line = ""
+        <span class="keyword">for</span> value in custom_object.items():
+            line+= (str(value[1].encode("utf-8"))[2:])[:-1]
+            line+= "\t"
+        f.write(line+"\n")
+</code></pre>
+            </div>
+        </div>
+        <h4>b. JSON</h4>
+        <div class="card">
+            <div class="card-header">
+                <img class="p-language" src="res/img/icons/python.jpg"> <b>Python</b>
+            </div>
+            <div class="card-body">
+            <pre class="card-text">
+<code>
+<span class="keyword">def</span> save_to_json(custom_object):
+
+    file = "../../output.json"
+    <span class="keyword">try</span>:
+        <span class="keyword">with</span> open(file) as f:
+            data = json.load(f)
+            data["tweets"].append(custom_object)
+            f.close()
+
+        <span class="keyword">with</span> open(file, 'w') as f:
+            json.dump(data, f, indent=2)
+            f.close()
+    <span class="keyword">except</span> (Exception):
+        <span class="keyword">print</span>(<span class="value">"failed to save an entry!"</span>)
+</code></pre>
+            </div>
+        </div>
+        <h4>c. MongoDB</h4>
+        <p>To save data in MongoDB, I recommend the <a href="https://api.mongodb.com/python/current/">pymongo</a> library. If you haven't used MongoDB,
+            <a href="https://www.tutorialspoint.com/mongodb/mongodb_create_database.htm" target="_blank">this</a> is a good starter tutorial.
+        </p>
+        <div class="card">
+            <div class="card-header">
+                <img class="p-language" src="res/img/icons/python.jpg"> <b>Python</b>
+            </div>
+            <div class="card-body">
+            <pre class="card-text">
+<code>
+<span class="keyword">def</span> save_to_mongo(collection_name,custom_object):
+
+    <span class="comment"># http://api.mongodb.com/python/current/tutorial.html</span>
+
+    client = MongoClient()
+    db = client.twitterapitest
+    collection = db[collection_name]
+
+    result = collection.insert_one(custom_object).inserted_id
+</code></pre>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <img class="p-language" src="res/img/icons/java.jpg"> <b>Java</b>
+            </div>
+            <div class="card-body">
+            <pre class="card-text">
+<code>
+<span class="keyword">private static void</span> saveToMongo(String collectionName,BasicDBObject obj) <span class="keyword">throws</span> UnknownHostException {
+
+        <span class="comment">// http://www.mkyong.com/mongodb/java-mongodb-hello-world-example/</span>
+        MongoClient mongo = <span class="keyword">new</span> MongoClient( <span class="value">"localhost"</span> , 27017 );
+        DB db = mongo.getDB(<span class="value">"twitterapitest"</span>);
+
+        DBCollection table = db.getCollection(collectionName);
+        table.insert(obj);
+    }
+</code></pre>
+            </div>
+        </div>
+
+    </div>
+</body>
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/bootstrap.bundle.min.js"></script>
+
+</html>
