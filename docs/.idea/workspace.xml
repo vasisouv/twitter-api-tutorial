@@ -11,37 +11,18 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="tutorial.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/tutorial.html">
+      <file leaf-file-name="bootstrap.bundle.min.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/bootstrap/bootstrap.bundle.min.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="657">
-              <caret line="636" column="8" lean-forward="false" selection-start-line="636" selection-start-column="8" selection-end-line="636" selection-end-column="8" />
-              <folding>
-                <element signature="e#15147#15151#0" expanded="true" />
-                <element signature="e#15157#15161#0" expanded="true" />
-                <element signature="e#15362#15366#0" expanded="true" />
-                <element signature="e#15372#15376#0" expanded="true" />
-                <element signature="e#15591#15595#0" expanded="true" />
-                <element signature="e#15601#15605#0" expanded="true" />
-                <element signature="e#15657#15661#0" expanded="true" />
-                <element signature="e#15667#15671#0" expanded="true" />
-                <element signature="e#15727#15731#0" expanded="true" />
-                <element signature="e#15737#15741#0" expanded="true" />
-                <element signature="e#25080#25084#0" expanded="true" />
-                <element signature="e#25090#25094#0" expanded="true" />
-                <element signature="e#25121#25125#0" expanded="true" />
-                <element signature="e#25131#25135#0" expanded="true" />
-                <element signature="e#25147#25151#0" expanded="true" />
-                <element signature="e#25157#25161#0" expanded="true" />
-                <element signature="e#25190#25194#0" expanded="true" />
-                <element signature="e#25200#25204#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bootstrap.bundle.min.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vendor/bootstrap/bootstrap.bundle.min.js">
+      <file leaf-file-name="tutorial.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/tutorial.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -54,7 +35,7 @@
         <entry file="file://$PROJECT_DIR$/res/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="272">
-              <caret line="16" column="24" lean-forward="true" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
+              <caret line="16" column="24" lean-forward="false" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -140,6 +121,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -192,7 +174,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -201,7 +182,7 @@
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="C:/xampp/htdocs/global-trading" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
@@ -241,12 +222,13 @@
       <option name="presentableId" value="Default" />
       <updated>1509925224880</updated>
       <workItem from="1509925226240" duration="5725000" />
-      <workItem from="1509972711481" duration="19955000" />
+      <workItem from="1509972711481" duration="20428000" />
+      <workItem from="1510645803054" duration="141000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25680000" />
+    <option name="totallyTimeSpent" value="26294000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -282,82 +264,7 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/tutorial.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#15147#15151#0" expanded="true" />
-            <element signature="e#15157#15161#0" expanded="true" />
-            <element signature="e#15362#15366#0" expanded="true" />
-            <element signature="e#15372#15376#0" expanded="true" />
-            <element signature="e#15591#15595#0" expanded="true" />
-            <element signature="e#15601#15605#0" expanded="true" />
-            <element signature="e#15657#15661#0" expanded="true" />
-            <element signature="e#15667#15671#0" expanded="true" />
-            <element signature="e#15727#15731#0" expanded="true" />
-            <element signature="e#15737#15741#0" expanded="true" />
-            <element signature="e#25080#25084#0" expanded="true" />
-            <element signature="e#25090#25094#0" expanded="true" />
-            <element signature="e#25121#25125#0" expanded="true" />
-            <element signature="e#25131#25135#0" expanded="true" />
-            <element signature="e#25147#25151#0" expanded="true" />
-            <element signature="e#25157#25161#0" expanded="true" />
-            <element signature="e#25190#25194#0" expanded="true" />
-            <element signature="e#25200#25204#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="21" lean-forward="false" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/html5/common.rnc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="124" column="18" lean-forward="false" selection-start-line="124" selection-start-column="18" selection-end-line="124" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/html5/phrase.rnc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="343" column="16" lean-forward="false" selection-start-line="343" selection-start-column="16" selection-end-line="343" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/bootstrap.bundle.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/bootstrap/bootstrap.bundle.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/devicon.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="23094" lean-forward="true" selection-start-line="0" selection-start-column="23094" selection-end-line="0" selection-end-column="23094" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/devicon/devicon.min.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -375,28 +282,75 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tutorial.html">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tutorial.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="21" lean-forward="false" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/html5/common.rnc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="124" column="18" lean-forward="false" selection-start-line="124" selection-start-column="18" selection-end-line="124" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/html5/phrase.rnc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="343" column="16" lean-forward="false" selection-start-line="343" selection-start-column="16" selection-end-line="343" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/bootstrap.bundle.js" />
+    <entry file="file://$PROJECT_DIR$/vendor/devicon.min.css" />
+    <entry file="file://$PROJECT_DIR$/vendor/devicon/devicon.min.css" />
+    <entry file="file://$PROJECT_DIR$/res/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="24" lean-forward="false" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tutorial.html">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="657">
           <caret line="636" column="8" lean-forward="false" selection-start-line="636" selection-start-column="8" selection-end-line="636" selection-end-column="8" />
-          <folding>
-            <element signature="e#15147#15151#0" expanded="true" />
-            <element signature="e#15157#15161#0" expanded="true" />
-            <element signature="e#15362#15366#0" expanded="true" />
-            <element signature="e#15372#15376#0" expanded="true" />
-            <element signature="e#15591#15595#0" expanded="true" />
-            <element signature="e#15601#15605#0" expanded="true" />
-            <element signature="e#15657#15661#0" expanded="true" />
-            <element signature="e#15667#15671#0" expanded="true" />
-            <element signature="e#15727#15731#0" expanded="true" />
-            <element signature="e#15737#15741#0" expanded="true" />
-            <element signature="e#25080#25084#0" expanded="true" />
-            <element signature="e#25090#25094#0" expanded="true" />
-            <element signature="e#25121#25125#0" expanded="true" />
-            <element signature="e#25131#25135#0" expanded="true" />
-            <element signature="e#25147#25151#0" expanded="true" />
-            <element signature="e#25157#25161#0" expanded="true" />
-            <element signature="e#25190#25194#0" expanded="true" />
-            <element signature="e#25200#25204#0" expanded="true" />
-          </folding>
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/bootstrap/bootstrap.bundle.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tutorial.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

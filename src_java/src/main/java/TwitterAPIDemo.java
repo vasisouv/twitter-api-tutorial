@@ -28,20 +28,22 @@ final class TwitterAPIDemo {
         String username = "Aristoteleio";
 
         // Get the entire timeline of a specific user
-//        List<String> userTweets = getTweetsOfUser(username,cb);
-//        for (String tweet : userTweets){
-//            System.out.println(tweet);
-//        }
-//        // Get Tweets using the Twitter Streaming API
-//        String[] keywords = {"music,guitar,concert"};
-//        getTweetsFromStream(keywords,cb);
+        /*List<String> userTweets = getTweetsOfUser(username,cb);
+        for (String tweet : userTweets){
+            System.out.println(tweet);
+        }
+        // Get Tweets using the Twitter Streaming API
+        String[] keywords = {"music,guitar,concert"};
+        getTweetsFromStream(keywords,cb);
+
+        // Get User by screen name
         User user = getUserByScreenName(username,cb);
         if (user != null){
             System.out.println("This user's id is "+String.valueOf(user.getId()));
-        }
+        }*/
 
         // Get a user's network
-        JSONObject userNetwork = getUserNetwork(username,cb);
+        /*JSONObject userNetwork = getUserNetwork(username,cb);
 
         JSONArray friends = userNetwork.getJSONArray("friendsIDs");
         JSONArray followers = userNetwork.getJSONArray("followersIDs");
@@ -55,7 +57,7 @@ final class TwitterAPIDemo {
             System.out.println(followers.get(i).toString());
         }
         System.out.println("This user has a total of "+String.valueOf(friends.length())+" friends" +
-                " and "+String.valueOf(followers.length())+" followers on Twitter");
+                " and "+String.valueOf(followers.length())+" followers on Twitter");*/
 
     }
     private static JSONObject getUserNetwork(String username,ConfigurationBuilder cb) throws JSONException {

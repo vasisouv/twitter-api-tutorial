@@ -1,14 +1,14 @@
 import tweepy
 import json
 import pymongo
-from src_python import utilities
+#from src_python import utilities
 
 # Initialize the API consumer keys and access tokens
-consumer_key = "SORXfCgvpS3wdbMRRNtc2qzfB"
-consumer_secret = "GBJkn5LCRuqvHqnogOdJJYKS4lNqVKiTWtOL0xlBKzD3p6uYFY"
+consumer_key = "LukFsjKDofVcCdiKsCnxiLx2V"
+consumer_secret = "NVnRjr15V9Dpn5AoTiKlmeVaVo5vYji7oNJXdIIDpwd2NtRq9m"
 
-access_token = "599269165-blChAStgzrWo9TIPcoUHiqhJTf7RqLxz090HnWjF"
-access_token_secret = "RjdUeLOkemTPLObB6dLDsdfwSQk3joyqDKer94g27Qi9J"
+access_token = "599269165-rU6CanHUUP2adXyXmkCJcWWqCyZvaV10FrgsZpYT"
+access_token_secret = "O87iIxe15hGpHBcZMkTwRHz1cyuEskbREQrSI6TQBMtaR"
 
 # Authenticate tweepy using the keys
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
@@ -78,9 +78,9 @@ if __name__ == '__main__':
     #user_id = "50374439"
 
     ### Get the entire timeline of tweets and retweets of a user ###
-    # statuses = get_user_tweets(user_id)
-    # for status in statuses:
-    #     print (status._json["text"])
+    statuses = get_user_tweets(user_id)
+    for status in statuses:
+        print (status._json["text"])
 
     #### Get full information about the user ###
     # user_json = get_user(user_id)
@@ -97,8 +97,8 @@ if __name__ == '__main__':
     # print ("This user has "+friends_count+" friends")
 
     #### Get the network (friends, followers) of the user ###
-    network = get_user_network(user_id)
-    print(network["friends"])
-    print(network["followers"])
+    # network = get_user_network(user_id)
+    # print(network["friends"])
+    # print(network["followers"])
 
 

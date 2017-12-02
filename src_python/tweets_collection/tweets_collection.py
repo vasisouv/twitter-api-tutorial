@@ -4,15 +4,17 @@ import pymongo
 from src_python import utilities
 
 # Initialize the API consumer keys and access tokens
-consumer_key = ""
-consumer_secret = ""
+consumer_key = "LukFsjKDofVcCdiKsCnxiLx2V"
+consumer_secret = "NVnRjr15V9Dpn5AoTiKlmeVaVo5vYji7oNJXdIIDpwd2NtRq9m"
 
-access_token = ""
-access_token_secret = ""
+access_token = "599269165-rU6CanHUUP2adXyXmkCJcWWqCyZvaV10FrgsZpYT"
+access_token_secret = "O87iIxe15hGpHBcZMkTwRHz1cyuEskbREQrSI6TQBMtaR"
 
 # Authenticate tweepy using the keys
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
+
+api = tweepy.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True, compression=True)
 
 class TwitterListener(tweepy.StreamListener):
 
@@ -49,6 +51,12 @@ class TwitterListener(tweepy.StreamListener):
     def on_error(self, status):
         print(status)
 
+def get_status_by_id(tweet_ids):
+
+    status = api.statuses_lookup(id_ = tweet_ids)
+
+    return status
+
 if __name__ == '__main__':
 
     # Initialize the listener
@@ -72,3 +80,6 @@ if __name__ == '__main__':
     stream.filter(languages=langs, track=topics, async=async, encoding=encoding)
     # by location
     #stream.filter(languages=langs, locations=locations, async=async, encoding=encoding)
+    ids = ["597826570770874368"]
+    status = get_status_by_id(ids)
+    print (status)
